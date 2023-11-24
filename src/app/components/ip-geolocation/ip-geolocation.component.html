@@ -1,0 +1,145 @@
+<section class="geolocation-search-wrap">
+    <div class="search-field-button-wrap">
+        <mat-form-field>
+            <mat-label>IP address</mat-label>
+            <input
+                matInput
+                type="text"
+                [formControl]="ipFormControl"
+                (keydown.enter)="getIPGeolocationData()"
+            >
+            <button
+                *ngIf="ipFormControl.valid"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                matTooltip="Clear IP and Geolocation result"
+                (click)="resetIpGeolocation()"
+              >
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        class="search-button"
+        (click)="getIPGeolocationData()"
+      >Search</button>
+    </div>
+  <div class="geolocation-result-wrap" *ngIf="ipGeolocation">
+    <app-loading *ngIf="loading"></app-loading>
+    <mat-card>
+      <mat-card-content>
+        <div>
+          <div class="table-row-wrap">
+            <p>IP</p>
+            <p>{{ipGeolocation.ip}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Country</p>
+            <p id="country">{{ipGeolocation.country_name}} <img src="{{ipGeolocation.country_flag}}"></p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Country Code</p>
+            <p>{{ipGeolocation.country_code2}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div *ngIf="ipGeolocation.state_prov">
+          <div class="table-row-wrap">
+            <p>Country State</p>
+            <p>{{ipGeolocation.state_prov}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>City</p>
+            <p>{{ipGeolocation.city}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Zip Code</p>
+            <p>{{ipGeolocation.zipcode}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Latitude</p>
+            <p>{{ipGeolocation.latitude}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Longitude</p>
+            <p>{{ipGeolocation.longitude}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Geoname ID</p>
+            <p>{{ipGeolocation.geoname_id}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Currency</p>
+            <p>{{ipGeolocation.currency.name}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Currency Code</p>
+            <p>{{ipGeolocation.currency.code}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Currency Symbol</p>
+            <p>{{ipGeolocation.currency.symbol}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Timezone</p>
+            <p>{{ipGeolocation.time_zone.name}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Current Time</p>
+            <p>{{ipGeolocation.time_zone.current_time}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div class="table-row-wrap">
+            <p>Current UNIX Time</p>
+            <p>{{ipGeolocation.time_zone.current_time_unix}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <app-map
+      [latitude]="ipGeolocation.latitude"
+      [longitude]="ipGeolocation.longitude"
+    ></app-map>
+  </div>
+</section>
