@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, NgZone, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {MapsAPILoader} from "@agm/core";
 
 @Component({
@@ -10,14 +10,13 @@ export class MapComponent implements OnInit{
 
   @Input() latitude!: number;
   @Input() longitude!: number;
-  @Input() zoom: number = 15;
+  @Input() zoom!: number;
 
   @ViewChild('search')
   public searchElementRef!: ElementRef;
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone,
   ) {}
 
   ngOnInit() {
@@ -25,7 +24,6 @@ export class MapComponent implements OnInit{
   }
 
   onMapClicked(event: any): void {
-    console.table(event.coords);
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
   }
