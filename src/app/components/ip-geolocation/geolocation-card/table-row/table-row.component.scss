@@ -1,0 +1,19 @@
+.table-row-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem;
+  p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFF;
+    &#text-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 40px;
+        margin-left: .5rem;
+      }
+    }
+  }
+}

@@ -18,7 +18,7 @@ import { LoadingComponent } from './components/base/loading/loading.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {GoogleMapsApiKey} from "./utils/api/api.key";
 import {AgmCoreModule} from "@agm/core";
-import { MapComponent } from './components/ip-geolocation/map/map/map.component';
+import { MapComponent } from './components/ip-geolocation/map/map.component';
 import { GeolocationCardComponent } from './components/ip-geolocation/geolocation-card/geolocation-card.component';
 import { TableRowComponent } from './components/ip-geolocation/geolocation-card/table-row/table-row.component';
 

@@ -53,29 +53,29 @@
     <div *ngIf="geolocation.currency">
       <app-table-row
         [key]="'Currency'"
-        [value]="geolocation.currency?.name"
+        [value]="geolocation.currency.name"
       ></app-table-row>
       <app-table-row
         [key]="'Currency Code'"
-        [value]="geolocation.currency?.code"
+        [value]="geolocation.currency.code"
       ></app-table-row>
       <app-table-row
         [key]="'Currency Symbol'"
-        [value]="geolocation.currency?.symbol"
+        [value]="geolocation.currency.symbol"
       ></app-table-row>
     </div>
     <div *ngIf="geolocation.time_zone">
       <app-table-row
         [key]="'Timezone'"
-        [value]="geolocation.time_zone?.name"
+        [value]="geolocation.time_zone.name"
       ></app-table-row>
       <app-table-row
         [key]="'Current Time'"
-        [value]="geolocation.time_zone?.current_time"
+        [value]="geolocation.time_zone.current_time"
       ></app-table-row>
       <app-table-row
         [key]="'Current UNIX Time'"
-        [value]="geolocation.time_zone?.current_time_unix"
+        [value]="geolocation.time_zone.current_time_unix"
       ></app-table-row>
     </div>
   </mat-card-content>

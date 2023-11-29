@@ -12,7 +12,7 @@ import {Geolocation} from "../../models/geolocation.model";
 export class IpGeolocationComponent implements OnInit{
 
   ipGeolocation: Geolocation | undefined;
-  currentIpAddress!: string;
+  currentIpAddress!: Geolocation;
   loading = true;
   ipFormControl: FormControl<string | null> = new FormControl('', [Validators.required]);
 
@@ -36,7 +36,7 @@ export class IpGeolocationComponent implements OnInit{
 
   getCurrentIpAddress(): void {
     this.ipGeolocationService.getIpGeolocation("").subscribe(currentIpAddress => {
-      this.currentIpAddress = currentIpAddress.ip;
+      this.currentIpAddress = currentIpAddress;
     });
   }
 

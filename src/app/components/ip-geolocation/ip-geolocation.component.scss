@@ -1,7 +1,15 @@
 .geolocation-search-wrap {
   padding: 1rem;
   .current-ip-address {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     margin: .25rem !important;
+    img {
+      margin-left: .5rem;
+      width: 40px;
+    }
   }
   .search-field-button-wrap {
     display: flex;
