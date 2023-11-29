@@ -1,0 +1,10 @@
+<div>
+  <div class="table-row-wrap">
+    <p>{{key}}</p>
+    <p
+      [id]="imgSrc ? 'text-image' : ''">
+      {{value}} <img *ngIf="imgSrc" alt="table-row-image" src="{{imgSrc}}">
+    </p>
+  </div>
+  <mat-divider></mat-divider>
+</div>

@@ -14,5 +14,5 @@ export class IpGeolocationService {
   public getIpGeolocation(IP: string | null): Observable<Geolocation> {
     return this.httpClient.get<any>(IpGeolocationUrl(IP));
   }
-
+  
 }

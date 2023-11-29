@@ -1,0 +1,82 @@
+<mat-card>
+  <mat-card-content>
+    <app-table-row
+      [key]="'IP'"
+      [value]="geolocation.ip+geolocation.country_code2"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Continent'"
+      [value]="geolocation.continent_name +'/'+geolocation.continent_code"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Country'"
+      [value]="geolocation.country_name"
+      [imgSrc]="geolocation.country_flag"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Official Country Name'"
+      [value]="geolocation.country_name_official"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Country Code'"
+      [value]="geolocation.country_code2"
+    ></app-table-row>
+    <app-table-row
+      *ngIf="geolocation.state_prov"
+      [key]="'Country State'"
+      [value]="geolocation.state_prov"
+    ></app-table-row>
+    <app-table-row
+      [key]="'State Code'"
+      [value]="geolocation.state_code"
+    ></app-table-row>
+    <app-table-row
+      [key]="'City'"
+      [value]="geolocation.city"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Zip Code'"
+      [value]="geolocation.zipcode"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Latitude'"
+      [value]="geolocation.latitude"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Longitude'"
+      [value]="geolocation.longitude"
+    ></app-table-row>
+    <app-table-row
+      [key]="'Geoname ID'"
+      [value]="geolocation.geoname_id"
+    ></app-table-row>
+    <div *ngIf="geolocation.currency">
+      <app-table-row
+        [key]="'Currency'"
+        [value]="geolocation.currency?.name"
+      ></app-table-row>
+      <app-table-row
+        [key]="'Currency Code'"
+        [value]="geolocation.currency?.code"
+      ></app-table-row>
+      <app-table-row
+        [key]="'Currency Symbol'"
+        [value]="geolocation.currency?.symbol"
+      ></app-table-row>
+    </div>
+    <div *ngIf="geolocation.time_zone">
+      <app-table-row
+        [key]="'Timezone'"
+        [value]="geolocation.time_zone?.name"
+      ></app-table-row>
+      <app-table-row
+        [key]="'Current Time'"
+        [value]="geolocation.time_zone?.current_time"
+      ></app-table-row>
+      <app-table-row
+        [key]="'Current UNIX Time'"
+        [value]="geolocation.time_zone?.current_time_unix"
+      ></app-table-row>
+    </div>
+  </mat-card-content>
+</mat-card>

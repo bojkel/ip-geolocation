@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { IpGeolocationService } from 'src/app/services/ip-geolocation.service';
 import {Geolocation} from "../../models/geolocation.model";
@@ -9,13 +9,18 @@ import {Geolocation} from "../../models/geolocation.model";
   styleUrls: ['./ip-geolocation.component.scss']
 })
 
-export class IpGeolocationComponent {
+export class IpGeolocationComponent implements OnInit{
 
   ipGeolocation: Geolocation | undefined;
+  currentIpAddress!: string;
   loading = true;
   ipFormControl: FormControl<string | null> = new FormControl('', [Validators.required]);
 
   constructor(private ipGeolocationService: IpGeolocationService) {}
+
+  ngOnInit() {
+    this.getCurrentIpAddress();
+  }
 
   getIPGeolocationData(): void {
     console.log("The searched IP address: ", this.ipFormControl.value);
@@ -26,6 +31,12 @@ export class IpGeolocationComponent {
         this.loading = false;
       }
       else console.error("No geolocation found.")
+    });
+  }
+
+  getCurrentIpAddress(): void {
+    this.ipGeolocationService.getIpGeolocation("").subscribe(currentIpAddress => {
+      this.currentIpAddress = currentIpAddress.ip;
     });
   }
 
