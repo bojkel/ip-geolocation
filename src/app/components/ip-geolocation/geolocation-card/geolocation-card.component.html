@@ -2,7 +2,7 @@
   <mat-card-content>
     <app-table-row
       [key]="'IP'"
-      [value]="geolocation.ip+geolocation.country_code2"
+      [value]="geolocation.ip"
     ></app-table-row>
     <app-table-row
       [key]="'Continent'"
@@ -10,7 +10,7 @@
     ></app-table-row>
     <app-table-row
       [key]="'Country'"
-      [value]="geolocation.country_name"
+      [value]="geolocation.country_name+' ('+geolocation.country_code2+')'"
       [imgSrc]="geolocation.country_flag"
     ></app-table-row>
     <app-table-row

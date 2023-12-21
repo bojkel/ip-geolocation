@@ -10,11 +10,12 @@
             <input
                 matInput
                 type="text"
+                placeholder="xxx.xxx.xxx.xxx"
                 [formControl]="ipFormControl"
                 (keydown.enter)="getIPGeolocationData()"
             >
             <button
-                *ngIf="ipFormControl.valid"
+                *ngIf="ipFormControl.getRawValue()"
                 matSuffix
                 mat-icon-button
                 aria-label="Clear"
@@ -34,7 +35,9 @@
   <div class="geolocation-result-wrap" *ngIf="ipGeolocation">
     <app-loading *ngIf="loading"></app-loading>
     <app-geolocation-card
+      *ngIf="!httpError"
       [geolocation]="ipGeolocation"
     ></app-geolocation-card>
+    <h2 *ngIf="httpError">There was an error fetching the IP address. It probably doesn't exist.</h2>
   </div>
 </section>
